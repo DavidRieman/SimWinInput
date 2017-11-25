@@ -39,10 +39,10 @@ namespace SimWinMouse
         }
 
         /// <summary>Simulates the specified mouse action.</summary>
+        /// <param name="mouseOption">The mouse state to simulate.</param>
         /// <param name="x">The horizontal pixel coordinate to place the mouse cursor at.</param>
         /// <param name="y">The vertical pixel coordinate to place the mouse cursor at.</param>
-        /// <param name="mouseOption">The mouse state to simulate.</param>
-        public static void Simulate(int x, int y, Action mouseOption)
+        public static void Act(Action mouseOption, int x, int y)
         {
             var absX = 65535 * x / ScreenWidth;
             var absY = 65535 * y / ScreenHeight;
@@ -50,19 +50,19 @@ namespace SimWinMouse
         }
 
         // TODO: Simulation of mouse scroll wheel movements. Something like:
-        //public void SimulateScroll(int x, int y, scrollAmount)
+        //public void SimulateScroll(scrollAmount, int x, int y)
         //public void SimulateScroll(scrollAmount)
-        
+
         // TODO: Simulation of click events which omit movement, to click wherever the cursor already is.
         //public static void SimulateClick(MouseButtons mouseButton, int holdClickTime = 10)
 
         /// <summary>Simulates a mouse click at the specified location.</summary>
+        /// <param name="mouseButton">Which mouse button to simulate a click for.</param>
         /// <param name="x">The horizontal pixel coordinate to place the mouse cursor at.</param>
         /// <param name="y">The vertical pixel coordinate to place the mouse cursor at.</param>
-        /// <param name="mouseButton">Which mouse button to simulate a click for.</param>
         /// <param name="holdClickTime">How long to simulate holding the mouse button down, in milliseconds.</param>
         /// <remarks>Basically this is just a pair of simulated mouse "down" and mouse "up" simulations in sequence.</remarks>
-        public static void SimulateClick(int x, int y, MouseButtons mouseButton, int holdClickTime = 10)
+        public static void Click(MouseButtons mouseButton, int x, int y, int holdClickTime = 10)
         {
             Action mouseDownOption, mouseUpOption;
             switch (mouseButton)
@@ -84,9 +84,9 @@ namespace SimWinMouse
                     throw new NotSupportedException("The selected mouse button is not yet supported: " + mouseButton.ToString());
             }
 
-            Simulate(x, y, mouseDownOption);
+            Act(mouseDownOption, x, y);
             Thread.Sleep(holdClickTime);
-            Simulate(x, y, mouseUpOption);
+            Act(mouseUpOption, x, y);
         }
 
         private static void RecalculateScreen()
