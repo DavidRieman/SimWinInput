@@ -1,13 +1,13 @@
 ﻿// This file is part of the SimWinMouse project, which is released under MIT License.
-// For details, see: https://github.com/DavidRieman/SimWinMouse
+// For details, see: https://github.com/DavidRieman/SimWinInput
 
-namespace SimWinMouse
+namespace SimWinInput
 {
     using System;
     using System.Runtime.InteropServices;
 
     /// <summary>Exposes relevant mouse methods and data from DLLs.</summary>
-    internal static class InteropMouse
+    public static class InteropMouse
     {
         /// <summary>Flags for mouse_event.</summary>
         /// <remarks>https://msdn.microsoft.com/en-us/library/windows/desktop/ms646260(v=vs.85).aspx</remarks>

@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+﻿// This file is part of the SimWinMouse project, which is released under MIT License.
+// For details, see: https://github.com/DavidRieman/SimWinInput
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
 [assembly: AssemblyTitle("SimWinMouse")]
-[assembly: AssemblyDescription("Simulate Windows mouse events")]
+[assembly: AssemblyDescription("Simulate Windows mouse events with .NET")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("David Rieman")]
 [assembly: AssemblyProduct("SimWinMouse")]
-[assembly: AssemblyCopyright("Copyright © DavidRieman 2017")]
+[assembly: AssemblyCopyright("Copyright © 2017 David Rieman")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

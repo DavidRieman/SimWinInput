@@ -1,7 +1,7 @@
 ﻿// This file is part of the SimWinMouse project, which is released under MIT License.
-// For details, see: https://github.com/DavidRieman/SimWinMouse
+// For details, see: https://github.com/DavidRieman/SimWinInput
 
-namespace SimWinMouse
+namespace SimWinInput
 {
     using Microsoft.Win32;
     using System;
@@ -61,7 +61,10 @@ namespace SimWinMouse
         /// <param name="x">The horizontal pixel coordinate to place the mouse cursor at.</param>
         /// <param name="y">The vertical pixel coordinate to place the mouse cursor at.</param>
         /// <param name="holdClickTime">How long to simulate holding the mouse button down, in milliseconds.</param>
-        /// <remarks>Basically this is just a pair of simulated mouse "down" and mouse "up" simulations in sequence.</remarks>
+        /// <remarks>
+        /// Basically this is just a pair of simulated mouse "down" and mouse "up" simulations in sequence.
+        /// This method is thread-blocking for the duration of the simulated button press.
+        /// </remarks>
         public static void Click(MouseButtons mouseButton, int x, int y, int holdClickTime = 10)
         {
             Action mouseDownOption, mouseUpOption;

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWinMouse", "Code\SimWinMouse.csproj", "{BEAE9C9A-3D3F-44EE-8568-C3FAA3CD6C9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWinMouse", "SimWinMouse\SimWinMouse.csproj", "{BEAE9C9A-3D3F-44EE-8568-C3FAA3CD6C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWinKeyboard", "SimWinKeyboard\SimWinKeyboard.csproj", "{51110AB1-5E63-472F-A4B0-DED9E0DA4547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BEAE9C9A-3D3F-44EE-8568-C3FAA3CD6C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEAE9C9A-3D3F-44EE-8568-C3FAA3CD6C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEAE9C9A-3D3F-44EE-8568-C3FAA3CD6C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

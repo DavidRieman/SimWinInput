@@ -1,10 +1,11 @@
 ﻿// This file is part of the SimWinMouse project, which is released under MIT License.
-// For details, see: https://github.com/DavidRieman/SimWinMouse
+// For details, see: https://github.com/DavidRieman/SimWinInput
 
-namespace SimWinMouse
+namespace SimWinInput
 {
     using System;
 
+    /// <summary>Methods for gathering screen size information.</summary>
     public class ScreenSize
     {
         /// <summary>Gets the width of the physical screen.</summary>
