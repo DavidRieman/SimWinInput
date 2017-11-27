@@ -5,6 +5,7 @@ namespace SimWinInput
 {
     using System.Threading;
 
+    /// <summary>Simulate keyboard events, such as pressing a key.</summary>
     public class SimKeyboard
     {
         /// <summary>Simulates a keyboard key in the 'pressed' state.</summary>

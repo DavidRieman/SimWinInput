@@ -3,3 +3,4 @@
 *.cache
 [Bb]in/
 [Oo]bj/
+/packages/

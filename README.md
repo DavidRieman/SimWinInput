@@ -5,8 +5,9 @@ These provide convenient, small, easy-to-use APIs so you don't have to muck arou
 Purpose: Accessibility, automation, augmented gaming, and more.
 
 
-## SimWinMouse Usage
-Add a reference to SimWinMouse.
+## Simulate Mouse
+Install `SimWinMouse` [via NuGet](https://docs.microsoft.com/en-us/nuget/quickstart/use-a-package)
+ or pull the source and add a project reference.
 
 To immediately move the mouse to the pixel at (100,50) and left-click:
 ```
@@ -21,8 +22,9 @@ SimMouse.Act(SimMouse.Action.LeftButtonUp, 50, 50);
 ```
 
 
-## SimWinKeyboard Usage
-Add a reference to SimWinKeyboard.
+## Simulate Keyboard
+Install `SimWinKeyboard` [via NuGet](https://docs.microsoft.com/en-us/nuget/quickstart/use-a-package)
+ or pull the source and add a project reference.
 
 To simulate a 'Q' keystroke:
 ```
