@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWinMouse", "SimWinMouse\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWinKeyboard", "SimWinKeyboard\SimWinKeyboard.csproj", "{51110AB1-5E63-472F-A4B0-DED9E0DA4547}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWinGamePad", "SimWinGamePad\SimWinGamePad.csproj", "{46541C61-9956-43C1-A30D-43574C4E48B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51110AB1-5E63-472F-A4B0-DED9E0DA4547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46541C61-9956-43C1-A30D-43574C4E48B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46541C61-9956-43C1-A30D-43574C4E48B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46541C61-9956-43C1-A30D-43574C4E48B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46541C61-9956-43C1-A30D-43574C4E48B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
