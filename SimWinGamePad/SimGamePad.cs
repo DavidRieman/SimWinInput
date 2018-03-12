@@ -13,8 +13,12 @@ namespace SimWinInput
     {
         private static SimGamePad instance = new SimGamePad();
         private static string NoDriverMessage = "The ScpVBus driver used for simulating GamePad input was not found. Would you like to install it and retry?" + Environment.NewLine + "This may prompt for administrative privileges.";
-        private ScpBus bus;
+
         private bool[] isPluggedIn = new bool[4];
+
+        // Note that ScpBus expects controller Numbers while we use Index; giving bus methods an arg of 0 for identifying controller is wrong.
+        // While the ScpBus interface is well-established, we can at least use sensible indices and convert to number (via +1) at our own call sites.
+        private ScpBus bus;
 
         private SimGamePad()
         {
@@ -78,10 +82,10 @@ namespace SimWinInput
         public void PlugIn(int controllerIndex = 0)
         {
             EnsureInitialized();
-            int i = (int)controllerIndex;
+            int i = controllerIndex;
             if (bus != null && !isPluggedIn[i])
             {
-                bus.PlugIn(i);
+                bus.PlugIn(i + 1);
                 isPluggedIn[i] = true;
             }
         }
@@ -89,10 +93,10 @@ namespace SimWinInput
         public void Unplug(int controllerIndex = 0)
         {
             EnsureInitialized();
-            int i = (int)controllerIndex;
+            int i = controllerIndex;
             if (bus != null && isPluggedIn[i])
             {
-                bus.Unplug(i);
+                bus.Unplug(i + 1);
                 isPluggedIn[i] = false;
             }
         }
@@ -114,7 +118,7 @@ namespace SimWinInput
         public void SetControl(GamePadControl control, int controllerIndex = 0)
         {
             EnsureInitialized();
-            int i = (int)controllerIndex;
+            int i = controllerIndex;
             if (!isPluggedIn[i])
             {
                 PlugIn(controllerIndex);
@@ -151,7 +155,7 @@ namespace SimWinInput
         public void ReleaseControl(GamePadControl control, int controllerIndex = 0)
         {
             EnsureInitialized();
-            int i = (int)controllerIndex;
+            int i = controllerIndex;
             if (isPluggedIn[i])
             {
                 var flagsToSet = Enum.GetValues(typeof(GamePadControl)).Cast<GamePadControl>().Where(c => c != GamePadControl.None && (control & c) != 0);
@@ -186,7 +190,7 @@ namespace SimWinInput
         public void Update(int controllerIndex = 0)
         {
             EnsureInitialized();
-            int i = (int)controllerIndex;
+            int i = controllerIndex;
             if (isPluggedIn[i])
             {
                 var report = State[i].GetReport();
