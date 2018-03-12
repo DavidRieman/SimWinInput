@@ -49,7 +49,7 @@ namespace SimWinInput
                         var result = MessageBox.Show(msg, "Install", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
-                            // @@@ RUN AND WAIT FOR EMBEDDED SCP DRIVER INSTALLER, WITH ELEVATED "runas" PERMISSIONS --silent MODE
+                            ScpDriverInstaller.Install();
                         }
 
                         retryInit = true;

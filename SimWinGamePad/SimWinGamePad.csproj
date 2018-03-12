@@ -39,12 +39,18 @@
     <Compile Include="GamePadControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScpBus.cs" />
+    <Compile Include="ScpDriverInstaller.cs" />
     <Compile Include="XnaInputToScpBusReport.cs" />
     <Compile Include="SimGamePad.cs" />
     <Compile Include="SimulatedGamePadState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\SimWinGamePad.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ScpDriverInstaller.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
