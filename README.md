@@ -49,11 +49,11 @@ If you have more advanced scenarios than the simple API above supports, check ou
 Install `SimWinGamePad` [via NuGet](https://docs.microsoft.com/en-us/nuget/quickstart/use-a-package)
  or pull the source and add a project reference.
 
-Before issuing other commands, call `SimGamePad.Instance.Initialize()`; if the return value is false then we cannot simulate a game pad.
+Before issuing other commands, call `SimGamePad.Instance.Initialize()`.
 
 Upon first initialization on a given PC, the may be prompted to accept automatic installation of the [ScpVBus](https://github.com/nefarius/ScpVBus) driver required to simulate Xbox 360 GamePads attached to Windows.
 (This is accomplished via the [ScpDriverInterface](https://github.com/DavidRieman/ScpDriverInterface/) installer.)
-Recovery from missing driver requires neither reboot nor app restart, but Initialize will return false if something has gone wrong (such as the user declining the prompt or UAC elevation for the installer).
+Recovery from missing driver requires neither reboot nor app restart, but Initialize will throw an exception if something prevents success (such as the user declining the prompt or UAC elevation for the installer).
 
 There can be up to four simulated GamePads, but they do not start plugged in. To plug one in as the first GamePad:
 ```

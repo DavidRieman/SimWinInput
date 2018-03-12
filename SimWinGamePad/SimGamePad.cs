@@ -8,9 +8,11 @@ namespace SimWinInput
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
+
     public class SimGamePad
     {
         private static SimGamePad instance = new SimGamePad();
+        private static string NoDriverMessage = "The ScpVBus driver used for simulating GamePad input was not found. Would you like to install it and retry?" + Environment.NewLine + "This may prompt for administrative privileges.";
         private ScpBus bus;
         private bool[] isPluggedIn = new bool[4];
 
@@ -25,12 +27,11 @@ namespace SimWinInput
 
         /// <summary>Initialize SimGamePad, including the key driver for simulation.</summary>
         /// <param name="mayAutoInstallDriver">If true and the driver could not be loaded, asks the user if they'd like to install it, and automatically recovers if they do.</param>
-        /// <returns>True if simulation can be started, else false.</returns>
-        public bool Initialize(bool mayAutoInstallDriver = true)
+        public void Initialize(bool mayAutoInstallDriver = true)
         {
             if (bus != null)
             {
-                return true; // Already initialized.
+                return; // Already initialized.
             }
 
             bool retryInit = false;
@@ -39,25 +40,24 @@ namespace SimWinInput
                 try
                 {
                     bus = new ScpBus();
-                    return true;
                 }
                 catch (IOException)
                 {
                     if (mayAutoInstallDriver)
                     {
-                        var msg = "The ScpVBus driver was not found. Would you like to install it?" + Environment.NewLine + "This may prompt for administrative privileges.";
-                        var result = MessageBox.Show(msg, "Install", MessageBoxButtons.YesNo);
+                        var result = MessageBox.Show(NoDriverMessage, "Install", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
                             ScpDriverInstaller.Install();
+                            retryInit = true;
                         }
-
-                        retryInit = true;
+                        else
+                        {
+                            throw new UserDeclinedDriverException("ScpVBus");
+                        }
                     }
                 }
             } while (retryInit);
-
-            return false;
         }
 
         public void ShutDown()
