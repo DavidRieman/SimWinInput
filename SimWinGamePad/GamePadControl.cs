@@ -4,7 +4,8 @@
 namespace SimWinInput
 {
     using System;
-    
+    using System.Collections.Generic;
+
     [Flags]
     public enum GamePadControl : Int32
     {
@@ -41,5 +42,18 @@ namespace SimWinInput
         LeftStickAsAnalog = 1 << 28,
         RightStickAsAnalog = 1 << 29,
         DPadAsAnalog = 1 << 30,
+    }
+
+    /// <summary>GamePadControls provides static helpers for handling GamePadControl information.</summary>
+    public static class GamePadControls
+    {
+        /// <summary>Provides the set of GamePadControl entries which directly represent binary buttons which should have just on/off states.</summary>
+        public static readonly GamePadControl[] BinaryControls = {
+            GamePadControl.DPadUp, GamePadControl.DPadDown, GamePadControl.DPadLeft, GamePadControl.DPadRight,
+            GamePadControl.Start, GamePadControl.Back,
+            GamePadControl.LeftStickClick, GamePadControl.RightStickClick,
+            GamePadControl.LeftShoulder, GamePadControl.RightShoulder,
+            GamePadControl.Guide, GamePadControl.A, GamePadControl.B, GamePadControl.X, GamePadControl.Y
+        };
     }
 }
