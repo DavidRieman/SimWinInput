@@ -11,10 +11,10 @@ namespace SimWinInput
 
     public class SimGamePad
     {
-        private static SimGamePad instance = new SimGamePad();
-        private static string NoDriverMessage = "The ScpVBus driver used for simulating GamePad input was not found. Would you like to install it and retry?" + Environment.NewLine + "This may prompt for administrative privileges.";
+        private static readonly SimGamePad instance = new SimGamePad();
+        private static readonly string NoDriverMessage = "The ScpVBus driver used for simulating GamePad input was not found. Would you like to install it and retry?" + Environment.NewLine + "This may prompt for administrative privileges.";
 
-        private bool[] isPluggedIn = new bool[4];
+        private readonly bool[] isPluggedIn = new bool[4];
 
         // Note that ScpBus expects controller Numbers while we use Index; giving bus methods an arg of 0 for identifying controller is wrong.
         // While the ScpBus interface is well-established, we can at least use sensible indices and convert to number (via +1) at our own call sites.
@@ -25,8 +25,11 @@ namespace SimWinInput
             this.State = new SimulatedGamePadState[4] { new SimulatedGamePadState(), new SimulatedGamePadState(), new SimulatedGamePadState(), new SimulatedGamePadState() };
         }
         
+        /// <summary>The singleton instance of the SimGamePad class.</summary>
         public static SimGamePad Instance { get { return instance; } }
 
+        /// <summary>Direct access to the simulated game pad state, for cases where you need more manual control than the other methods.</summary>
+        /// <remarks>Use in conjunction with the "Update" method after your new state is fully configured.</remarks>
         public SimulatedGamePadState[] State { get; private set; }
 
         /// <summary>Initialize SimGamePad, including the key driver for simulation.</summary>
@@ -64,6 +67,12 @@ namespace SimWinInput
             } while (retryInit);
         }
 
+        /// <summary>Shut down and clean up any disposable resources held by SimGamePad.</summary>
+        /// <remarks>
+        /// This should be called before application shutdown is completed (whenever possible), as the underlying driver
+        /// can be finicky. For example, you may want to call this upon Dispose of your main window/form or through other
+        /// app shutdown eventing. This method can safely be called redundantly.
+        /// </remarks>
         public void ShutDown()
         {
             if (bus != null)
@@ -79,6 +88,8 @@ namespace SimWinInput
             }
         }
 
+        /// <summary>Simulate plugging in a controller.</summary>
+        /// <param name="controllerIndex">The index specifying which controller to plug in.</param>
         public void PlugIn(int controllerIndex = 0)
         {
             EnsureInitialized();
@@ -90,6 +101,8 @@ namespace SimWinInput
             }
         }
 
+        /// <summary>Unplug a simulated controller.</summary>
+        /// <param name="controllerIndex">The index specifying which controller to unplug.</param>
         public void Unplug(int controllerIndex = 0)
         {
             EnsureInitialized();
@@ -107,14 +120,18 @@ namespace SimWinInput
         /// </summary>
         /// <param name="control">Which control to use.</param>
         /// <param name="controllerIndex">Which controller to use.</param>
-        public void Use(GamePadControl control, int controllerIndex = 0)
+        /// <param name="holdTimeMS">How many milliseconds to hold the button down.</param>
+        public void Use(GamePadControl control, int controllerIndex = 0, int holdTimeMS = 50)
         {
             EnsureInitialized();
             SetControl(control, controllerIndex);
-            Thread.Sleep(10);
+            Thread.Sleep(holdTimeMS);
             ReleaseControl(control, controllerIndex);
         }
 
+        /// <summary>Puts the the specified control in the simulated "fully on" state.</summary>
+        /// <param name="control">Which control to set.</param>
+        /// <param name="controllerIndex">The index of the controller to set this state for.</param>
         public void SetControl(GamePadControl control, int controllerIndex = 0)
         {
             EnsureInitialized();
@@ -152,6 +169,9 @@ namespace SimWinInput
             Update(controllerIndex);
         }
 
+        /// <summary>Puts the the specified control in the simulated "fully off" state.</summary>
+        /// <param name="control">Which control to set.</param>
+        /// <param name="controllerIndex">The index of the controller to set this state for.</param>
         public void ReleaseControl(GamePadControl control, int controllerIndex = 0)
         {
             EnsureInitialized();
@@ -187,6 +207,9 @@ namespace SimWinInput
             }
         }
 
+        /// <summary>Instruct the underlying driver to adopt the current tracked state.</summary>
+        /// <remarks>You should call this at opportune moments if you are self-managing game pad state through the 'State' property.</remarks>
+        /// <param name="controllerIndex">The index of the controller whose state we want to commit.</param>
         public void Update(int controllerIndex = 0)
         {
             EnsureInitialized();
