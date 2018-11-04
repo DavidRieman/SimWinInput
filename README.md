@@ -6,6 +6,8 @@ Purpose: Accessibility, automation, augmented gaming, and more.
 
 
 ## Simulate Mouse
+NOTE: The modern .NET `System.Windows.Forms.Cursor` provides an effective means to control the mouse cursor position by setting the `Cursor.Position` property. If mouse _positioning_ is all that you need, try `Cursor.Position` first. However, `SimWinMouse` will help you accomplish additional scenarios, such as clicking.
+
 Install `SimWinMouse` [via NuGet](https://docs.microsoft.com/en-us/nuget/quickstart/use-a-package)
  or pull the source and add a project reference.
 

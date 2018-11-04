@@ -13,8 +13,12 @@ namespace SimWinInput
         [Flags]
         public enum KeyboardEventFlags : uint
         {
-            /// <summary>The keyboard key is in a 'down' or 'pressed' state (KEYEVENTF_EXTENDEDKEY).</summary>
-            KeyDown = 0x1,
+            /// <summary>The keyboard key is in a 'down' or 'pressed' state.</summary>
+            KeyDown = 0x0,
+
+            /// <summary>The keyboard key is an 'extended' key (KEYEVENTF_EXTENDEDKEY).</summary>
+            /// <remarks></remarks>
+            KeyExtended = 0x1,
 
             /// <summary>The keyboard key is in an 'up' or 'unpressed' state (KEYEVENTF_KEYUP).</summary>
             KeyUp = 0x2,

@@ -44,9 +44,9 @@ namespace SimWinInput
         /// <param name="y">The vertical pixel coordinate to place the mouse cursor at.</param>
         public static void Act(Action mouseOption, int x, int y)
         {
-            var absX = 65535 * x / ScreenWidth;
-            var absY = 65535 * y / ScreenHeight;
-            InteropMouse.mouse_event((uint)mouseOption, absX, absY, 0, 0);
+            double absX = 65535.0 * (x + 1) / ScreenWidth;
+            double absY = 65535.0 * (y + 1) / ScreenHeight;
+            InteropMouse.mouse_event((uint)mouseOption, (int)absX, (int)absY, 0, 0);
         }
 
         // TODO: Simulation of mouse scroll wheel movements. Something like:
