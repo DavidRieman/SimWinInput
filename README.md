@@ -84,15 +84,18 @@ When exiting the program, you should always call `SimGamePad.Instance.ShutDown()
 This will unplug any remaining simulated GamePads and clean up any utilized resources, such as disposing the driver.
 
 ### Intermediate GamePad Simulation
-Should you need more than one GamePad simulated, each command can optionally specify an index from 0 to 3 for which one to drive.
+Should you need more than one GamePad simulated, each command can optionally specify an index from 0 to 3 for which one to drive. You can also specify hold times (in milliseconds) if the default is not suitable for your needs:
+```
+SimGamePad.Instance.Use(GamePadControl.LeftTrigger, 2, 500);
+```
 
 You can use GamePadControl as flags to designate multiple controls to use at the same time.
 You can also simulate controls in a held position until later asking to release them.
 This example demonstrates both:
 ```
-SimGamePad.SetControl(GamePadControl.RightTrigger | GamePadControl.RightBumper);
+SimGamePad.Instance.SetControl(GamePadControl.RightTrigger | GamePadControl.RightBumper);
 ...
-SimGamePad.ReleaseControl(GamePadControl.RightTrigger | GamePadControl.RightBumper);
+SimGamePad.Instance.ReleaseControl(GamePadControl.RightTrigger | GamePadControl.RightBumper);
 ```
 
 
@@ -101,7 +104,7 @@ For more advanced scenarios, you can exercise full control over all analog contr
 ```
 // Get a reference to the state of the first GamePad:
 var simPad = SimGamePad.Instance;
-var state = SimGamePad.Instance.State[0];
+var state = simPad.State[0];
 // Pull the left trigger halfway back:
 state.LeftTrigger = 127;
 // Move the right analog stick three quarters of the way to the left:
