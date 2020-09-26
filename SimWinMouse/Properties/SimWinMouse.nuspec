@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <copyright>$copyright$</copyright>
     <description>$description$</description>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/DavidRieman/SimWinInput</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>mouse events simulate emulate cursor click movement Windows</tags>
