@@ -12,7 +12,7 @@
         <Button x:Name="MoveCursorToCornerButton" Content="Move Cursor to 0,0" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="231" Height="35" Click="MoveCursorToCornerButton_Click"/>
         <Button x:Name="MoveCursorNearCornerButton" Content="Move Cursor to 1,1" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="231" Height="35" Click="MoveCursorNearCornerButton_Click"/>
         <Button x:Name="MoveCursor3" Content="Move Cursor to 1893,1061" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="231" Height="35" Click="MoveCursor3_Click"/>
-        <Button x:Name="MoveCursorSecondScreen" Content="Move Cursor to Mid Scondary" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="231" Height="35" Click="MoveCursorSecondScreen_Click"/>
+        <Button x:Name="MoveCursorSecondScreen" Content="Move Cursor to Mid Secondary" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="231" Height="35" Click="MoveCursorSecondScreen_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="270,16,0,0" TextWrapping="Wrap" Text="Keyboard:" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="TextEntry" HorizontalAlignment="Left" Height="28" Margin="270,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231"/>
         <Button x:Name="TypeASDF" Content="Type ASDF" HorizontalAlignment="Left" Margin="270,95,0,0" VerticalAlignment="Top" Width="231" Height="35" Click="TypeASDF_Click"/>
