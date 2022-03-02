@@ -47,6 +47,7 @@ namespace SimWinInput
                 try
                 {
                     bus = new ScpBus();
+                    retryInit = false;
                 }
                 catch (IOException)
                 {
