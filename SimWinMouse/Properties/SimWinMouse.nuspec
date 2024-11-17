@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
     <authors>$author$</authors>
-    <owners>$author$</owners>
     <copyright>$copyright$</copyright>
     <description>$description$</description>
+    <id>$id$</id>
     <license type="expression">MIT</license>
+    <owners>$author$</owners>
     <projectUrl>https://github.com/DavidRieman/SimWinInput</projectUrl>
+    <releaseNotes>Initial release.</releaseNotes>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>mouse events simulate emulate cursor click movement Windows</tags>
-    <releaseNotes>Initial release.</releaseNotes>
+    <title>$title$</title>
+    <version>$version$</version>
   </metadata>
 </package>

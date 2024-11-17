@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
     <authors>$author$</authors>
-    <owners>$author$</owners>
     <copyright>$copyright$</copyright>
     <description>$description$</description>
+    <id>$id$</id>
     <license type="expression">MIT</license>
+    <owners>$author$</owners>
     <projectUrl>https://github.com/DavidRieman/SimWinInput</projectUrl>
+    <releaseNotes>Initial release, plus bug fixes, embedded driver installer, and documentation.</releaseNotes>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>GamePad events simulate emulate Xbox 360 controller driver buttons triggers analog sticks Windows</tags>
-    <releaseNotes>Initial release, plus bug fixes, embedded driver installer, and documentation.</releaseNotes>
+    <title>$title$</title>
+    <version>$version$</version>
   </metadata>
 </package>
