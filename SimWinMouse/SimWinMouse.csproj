@@ -5,9 +5,15 @@
     <AssemblyName>SimWinMouse</AssemblyName>
     <RootNamespace>SimWinMouse</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <NoWarn>CA1416</NoWarn>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWindowsForms>true</UseWindowsForms>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.2.0</Version>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>
