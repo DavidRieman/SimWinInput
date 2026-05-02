@@ -5,6 +5,7 @@
     <AssemblyName>SimExamples</AssemblyName>
     <RootNamespace>SimExamples</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>CA1416</NoWarn>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
