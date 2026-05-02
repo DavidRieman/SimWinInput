@@ -4,14 +4,19 @@
     <TargetFrameworks>net48;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
     <AssemblyName>SimWinGamePad</AssemblyName>
     <RootNamespace>SimWinGamePad</RootNamespace>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <NoWarn>CA1416</NoWarn>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWindowsForms>true</UseWindowsForms>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
+    <AssemblyVersion>1.2.1</AssemblyVersion>
+    <FileVersion>1.2.1</FileVersion>
+    <Company>David Rieman</Company>
+    <Product>SimWinGamePad</Product>
+    <Description>Simulate Windows GamePad controller events with .NET</Description>
+    <Copyright>Copyright © 2026 David Rieman</Copyright>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
